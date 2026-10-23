@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#070b16">
+<title>InterviewPilot AI — No Node.js Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="glow g1"></div><div class="glow g2"></div>
+<div class="shell">
+<aside class="sidebar">
+  <a class="brand" href="#"><span class="logo"><i></i><i></i><i></i></span><span>interview<span class="cyan">pilot</span><small>AI COACHING SYSTEM</small></span></a>
+  <div class="nav-label">WORKSPACE</div>
+  <button class="nav active" data-view="studio">◉ <span>Live studio</span><b class="dot"></b></button>
+  <button class="nav" data-view="practice">◇ <span>Practice mode</span></button>
+  <button class="nav" data-view="profile">▤ <span>Candidate profile</span></button>
+  <div class="side-bottom"><div class="privacy"><span>⌁</span><b>Your voice. Your control.</b><p>Listening starts only after you confirm permission and press Start.</p></div><small class="side-foot">STATIC WEB APP · NO NODE.JS</small></div>
+</aside>
+<main>
+<header class="top"><div>Workspace <span>/</span> <b id="crumb">Live studio</b></div><div class="secure">● PRIVATE SESSION</div></header>
+<section class="hero"><div><div class="eyebrow">— YOUR PERSONAL INTERVIEW COACH</div><h1>Think clearly.<br><span>Speak confidently.</span></h1><p>Turn interview questions into clear, natural answers — grounded in your real experience.</p></div><div class="orb"><div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div><div class="core">✳</div><label>VOICE ENGINE <b>READY</b></label></div></section>
+<div class="consent"><div class="consent-icon">◎</div><div class="consent-copy"><b>Live listening is off</b><span>Use only with permission and when interview rules allow AI assistance.</span></div><label class="permission"><input id="consent" type="checkbox"><span class="toggle"></span>I have permission</label></div>
+<section class="grid" id="studio">
+<div class="panel">
+  <div class="panel-head"><div><small>01 / VOICE INPUT</small><h2>Listening studio</h2></div><span class="chip" id="listenState">● STANDBY</span></div>
+  <div class="wavebox" id="wavebox"><div class="wave" id="wave"></div><p id="waveCaption">READY WHEN YOU ARE</p></div>
+  <div class="controls"><button class="primary" id="start">▶ Start listening</button><button class="secondary" id="stop" disabled>■ Stop</button></div>
+  <p class="note">ⓘ Uses browser speech recognition where supported. Browser speech providers may process audio according to their own policies.</p>
+  <div class="transcript">
+    <div class="subhead"><b>LIVE TRANSCRIPT</b><span id="transcriptStatus">Waiting for speech</span></div>
+    <div id="transcript" class="transcript-text muted">Your detected question will appear here…</div>
+    <div class="transcript-actions"><button class="link" id="clear">Clear transcript</button><button class="link cyan" id="generate">Generate answer ↗</button></div>
+  </div>
+</div>
+<div class="panel answer-panel">
+  <div class="panel-head"><div><small>02 / RESPONSE ENGINE</small><h2>Suggested answer</h2></div><span class="chip purple">✳ COACHING</span></div>
+  <div id="empty" class="empty"><div class="empty-icon">✳</div><b>Your answer will appear here</b><p>Speak a question or type one below. This offline edition uses a sample-answer helper until you connect a secure AI service.</p></div>
+  <div id="answerArea" class="answer-area hidden"><div class="subhead"><b>RESPONSE DRAFT</b><span id="demoTag" class="demo-tag">LOCAL SAMPLE</span></div><div id="answer" class="answer"></div><div class="subhead"><b>REMEMBER THESE POINTS</b></div><ul id="points"></ul><div class="controls answer-controls"><button class="primary" id="speak">▶ Read aloud</button><button class="secondary" id="copy">▣ Copy answer</button></div></div>
+  <div class="typed"><label for="question">OR TYPE A QUESTION</label><textarea id="question" rows="2" placeholder="e.g. Tell me about a technical issue you solved…"></textarea><button class="outline" id="typedGenerate">Generate suggested answer →</button></div>
+</div>
+</section>
+<section id="practice" class="panel lower hidden">
+  <div class="panel-head"><div><small>PRACTICE / BUILD CONFIDENCE</small><h2>Mock interview room</h2></div><span class="chip">SELF-PACED</span></div>
+  <p class="intro">Practice answering common questions aloud. Write or dictate your answer, then get structured practice tips.</p>
+  <div class="practice-q"><small id="qNum">QUESTION 01</small><h3 id="practiceQ">Tell me about yourself and your professional background.</h3></div>
+  <div class="controls"><button class="primary" id="nextQ">Next question ↗</button><button class="secondary" id="readQ">▶ Read question</button></div>
+  <label class="field-label" for="practiceAnswer">YOUR ANSWER</label><textarea id="practiceAnswer" rows="5" placeholder="Write your answer here…"></textarea>
+  <button class="primary" id="feedback">Get practice feedback ✳</button><div id="feedbackBox" class="feedback hidden"></div>
+</section>
+<section id="profile" class="panel lower hidden">
+  <div class="panel-head"><div><small>PERSONALIZATION</small><h2>Candidate profile</h2></div><span class="chip">SESSION ONLY</span></div>
+  <p class="intro">Add real skills and experience to help shape sample answers. This profile stays in memory in this browser tab; it is not saved to a database.</p>
+  <label class="field-label" for="profileText">YOUR BACKGROUND</label><textarea id="profileText" rows="7" placeholder="Example: I work in L2 application/database support for Oracle Retail systems. I use SQL and PL/SQL for investigation and data validation, review Linux logs, and monitor batch jobs…"></textarea>
+  <button class="primary" id="saveProfile">Save for this session</button><span id="saved" class="saved hidden">✓ Profile saved for this session.</span>
+</section>
+<footer><span>INTERVIEWPILOT AI · PORTFOLIO PROJECT</span><span>Practice and permitted assistance · Static edition</span></footer>
+</main>
+</div>
+<div id="toast" class="toast" role="status"></div>
+<script src="app.js"></script>
+</body></html>
