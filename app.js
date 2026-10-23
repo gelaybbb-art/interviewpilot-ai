@@ -1,5 +1,6 @@
 // Set this to your deployed Cloudflare Worker URL after deployment.
-const API_BASE_URL = "PASTE_YOUR_CLOUDFLARE_WORKER_URL_HERE";
+
+const API_BASE_URL = "https://interviewpilot-ai-api.gelaybbb.workers.dev";
 const $=id=>document.getElementById(id);
 const state={consent:false,recognition:null,listening:false,transcript:'',final:'',question:'',profile:'',answer:'',timer:null,toastTimer:null};
 for(let i=0;i<43;i++){const s=document.createElement('span');s.style.setProperty('--h',(7+Math.round(Math.abs(Math.sin(i*1.73))*45))+'px');s.style.setProperty('--delay',((i%11)*-70)+'ms');$('wave').appendChild(s)}
